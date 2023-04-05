@@ -27,8 +27,18 @@
 }
 .navButtons {
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(5, 5, 83, 0.534);
+  border-radius: 12px;
   border: none;
   outline: none;
   width: 180px;
-  height: 40px;
+  height: 50px;
+  background: rgba(214, 203, 203, 0.48783263305322133);
+}
+.navButtons:hover {
+  border: 2px solid rgba(104, 6, 6, 0.651);
+  background: rgba(214, 203, 203, 0.747);
+  color: rgba(5, 5, 83, 0.836);
 }
