@@ -3,6 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import './styles.css';
 import { createTraveller } from '../../API/index';
+import { useState } from 'react';
 const userSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   numberOfTravellers: Yup.number().required(
@@ -14,6 +15,7 @@ const userSchema = Yup.object().shape({
     .required('Please enter the email '),
 });
 const Home = () => {
+  const [showSuccess, setShowSuccess] = useState(false);
   const {
     register,
     reset,
@@ -25,11 +27,14 @@ const Home = () => {
   const onSubmit = (data) => {
     createTraveller(data);
     reset();
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 1000);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex-container'>
-        {' '}
         <div className='field-container'>
           <label>Name</label>
           <input
@@ -79,9 +84,18 @@ const Home = () => {
           <span className='errorMsg'>{errors.numberOfTravellers?.message}</span>
         )}
         <button className='submit-btn'>Submit</button>
+        {showSuccess && <SuccessCard />}
       </div>
     </form>
   );
 };
 
 export default Home;
+
+const SuccessCard = () => {
+  return (
+    <div className='SuccessDiv'>
+      <span>Success</span>
+    </div>
+  );
+};
