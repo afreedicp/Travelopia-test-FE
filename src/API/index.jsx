@@ -1,8 +1,9 @@
 import axios from './axios';
 
-const travellersList = () => {
+const travellersList = (successCB) => {
   return axios.get('/travellers').then((res) => {
-    return res;
+    successCB(res.data);
+    return res.data;
   });
 };
 

@@ -1,16 +1,47 @@
 import './App.css';
 import Home from './Pages/Home';
 import View from './Pages/View';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 function App() {
+  const [page, setPage] = useState('home');
   const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === '/view') {
+      setPage('view');
+    }
+  }, []);
   return (
-    <div className='App'>
+    <div
+      className='App'
+      style={{
+        backgroundImage: ` ${
+          page === 'home' ? 'url(/travel.jpg)' : 'url(/maps.jpg)'
+        } `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className='buttons_nav'>
-        <button type='button' onClick={() => navigate('/')}>
+        <button
+          className='navButtons'
+          type='button'
+          onClick={() => {
+            navigate('/');
+            setPage('home');
+          }}
+        >
           Home
         </button>
-        <button type='button' onClick={() => navigate('/view')}>
+        <button
+          className='navButtons'
+          type='button'
+          onClick={() => {
+            navigate('/view');
+            setPage('view');
+          }}
+        >
           View
         </button>
       </div>

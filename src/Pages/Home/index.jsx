@@ -2,9 +2,10 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import './styles.css';
+import { createTraveller } from '../../API/index';
 const userSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
-  numberOfTravelers: Yup.string().required(
+  numberOfTravellers: Yup.number().required(
     'Please eneter number of travellor.'
   ),
 
@@ -15,12 +16,16 @@ const userSchema = Yup.object().shape({
 const Home = () => {
   const {
     register,
+    reset,
     formState: { errors },
     handleSubmit,
   } = useForm({
     resolver: yupResolver(userSchema),
   });
-  const onSubmit = (value) => {};
+  const onSubmit = (data) => {
+    createTraveller(data);
+    reset();
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex-container'>
@@ -51,7 +56,11 @@ const Home = () => {
         )}
         <div className='field-container'>
           <label>Destination</label>
-          <select className='inputField' placeholder='Where to ?'>
+          <select
+            className=' selectField'
+            placeholder='Where to ?'
+            {...register('destination')}
+          >
             <option>India</option>
             <option>Africa</option>
             <option>Europe</option>
@@ -62,12 +71,12 @@ const Home = () => {
           <input
             className='inputField'
             type='number'
-            {...register('numberOfTravelers')}
+            {...register('numberOfTravellers')}
             placeholder='Travellers'
           />
         </div>
-        {errors.numberOfTravelers && (
-          <span className='errorMsg'>{errors.numberOfTravelers?.message}</span>
+        {errors.numberOfTravellers && (
+          <span className='errorMsg'>{errors.numberOfTravellers?.message}</span>
         )}
         <button className='submit-btn'>Submit</button>
       </div>

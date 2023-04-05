@@ -1,0 +1,33 @@
+.viewContainer {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 20px;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.cardDiv {
+  width: 200px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  border-radius: 16px;
+  padding: 30px;
+  height: 200px;
+  background: linear-gradient(
+    58deg,
+    rgba(4, 25, 83, 0.5662640056022409) 74%,
+    rgba(134, 39, 1, 0.7091211484593838) 100%
+  );
+}
+.detailsDiv {
+  padding: 15px 10px;
+  font-weight: 600;
+  color: rgba(26, 21, 21, 0.904);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #000;
+}
+.detailsDiv:last-child {
+  border-bottom: none;
+}
