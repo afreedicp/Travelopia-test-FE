@@ -72,7 +72,7 @@ const Home = () => {
           </select>
         </div>
         <div className='field-container'>
-          <label>No. of traveller</label>
+          <label className='textlabel'>No. of traveller</label>
           <input
             className='inputField'
             type='number'

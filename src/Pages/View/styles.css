@@ -3,9 +3,13 @@
   gap: 2rem;
   flex-wrap: wrap;
   padding: 20px;
-  max-height: 90vh;
+  max-height: 78vh;
   overflow-y: auto;
   overflow-x: hidden;
+}
+.viewContainer::-webkit-scrollbar {
+  width: 4px;
+  height: 159px;
 }
 .cardDiv {
   width: 200px;

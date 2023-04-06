@@ -17,9 +17,10 @@ function App() {
       className='App'
       style={{
         backgroundImage: ` ${
-          page === 'home' ? 'url(/travel.jpg)' : 'url(/maps.jpg)'
+          page === 'home' ? 'url(/travel.jpg)' : 'url(/view.jpg)'
         } `,
         backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}
     >
