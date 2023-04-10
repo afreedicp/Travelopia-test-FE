@@ -39,6 +39,10 @@ const DetailCard = ({ item }) => {
         <span>Number of Travellers</span>
         <span>{item.numberOfTravellers}</span>
       </div>
+      <div className='detailsDiv'>
+        <span>Budget/Person</span>
+        <span>{item.budgetPerPerson}</span>
+      </div>
     </div>
   );
 };

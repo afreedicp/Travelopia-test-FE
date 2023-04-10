@@ -78,6 +78,26 @@
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   background: rgba(141, 232, 153, 0.8435749299719888);
 }
+.budgetField {
+  margin: 0;
+  height: 35px;
+  padding-left: 25px;
+  width: 94%;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+}
+.budgetLabel {
+  padding: 0;
+  width: 73%;
+  position: relative;
+}
+.dollar {
+  left: 10px;
+  top: 8px;
+  position: absolute;
+}
 @media only screen and (max-width: 1200px) {
   .flex-container {
     width: 50%;

@@ -13,6 +13,8 @@ def test_example(page: Page) -> None:
     page.get_by_placeholder("Email").fill("afree@asd.in")
     page.get_by_placeholder("Travellers").click()
     page.get_by_placeholder("Travellers").fill("34")
+    page.get_by_placeholder("Budget").click()
+    page.get_by_placeholder("Budget").fill("10")
     page.get_by_role("button", name="Submit").click()
     page.get_by_role("button", name="View").click()
     page.goto("http://localhost:3000/view")

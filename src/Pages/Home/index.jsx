@@ -80,6 +80,18 @@ const Home = () => {
             placeholder='Travellers'
           />
         </div>
+        <div className='field-container '>
+          <label className='textlabel '>Budget/person</label>
+          <div className='inputField budgetLabel'>
+            <input
+              className='budgetField'
+              type='number'
+              {...register('budgetPerPerson')}
+              placeholder='Budget'
+            />
+            <span className='dollar'>$</span>
+          </div>
+        </div>
         {errors.numberOfTravellers && (
           <span className='errorMsg'>{errors.numberOfTravellers?.message}</span>
         )}

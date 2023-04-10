@@ -11,7 +11,7 @@ function App() {
     if (location.pathname === '/view') {
       setPage('view');
     }
-  }, []);
+  }, [location]);
   return (
     <div
       className='App'
